@@ -16,8 +16,12 @@ ENV PATH="/root/.local/bin:$PATH"
 # Set up the application directory
 WORKDIR /app
 
+ENV AIPROXY_TOKEN=${AIPROXY_TOKEN}
+
 # Copy application files
 COPY app.py /app
+COPY tasksA.py /app
+COPY tasksB.py /app
 
 # Explicitly set the correct binary path and use `sh -c`
 CMD ["/root/.local/bin/uv", "run", "app.py"]
